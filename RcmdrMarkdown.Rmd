@@ -1,0 +1,40 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### Your Name
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r}
+with(imagpop, Hist(kkardashtemp, groups=sex, 
+  scale="frequency", breaks="Sturges", col="darkgray"))
+```
+
+```{r}
+indexplot(imagpop[,'kkardashtemp', drop=FALSE], type='h',
+   id.method='y', id.n=2)
+```
+
+```{r}
+densityPlot(kkardashtemp~sex, method="kernel", 
+  data=imagpop, bw="SJ", adjust=1, kernel="gaussian")
+```
+
+
