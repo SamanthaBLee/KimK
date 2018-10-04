@@ -1,0 +1,36 @@
+---
+Author: "Samantha Lee"
+title: "KimK"
+output: html_document
+---
+
+
+```{r}
+library(tigerstats)
+```
+
+```{r}
+data("imagpop")
+View(imagpop)
+```
+
+```{r}
+kimk=imagpop$kkardashtemp
+```
+
+```{r}
+plot(kimk)
+```
+
+
+```{r}
+densityPlot(kkardashtemp~sex, method="kernel", 
+  data=imagpop, bw="SJ", adjust=1, kernel="gaussian")
+```
+
+#Conclusion
+While men find Kim Kardashian attractive; women appear to not.
+
+   
+
+
